@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="./script.js"></script>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <title>Search Page</title>
+</head>
+<body class="prj4">
+    <h1>myMovies Xpress!</h1>
+    <h2>Welcome <?=$_SESSION["display_name"];?> <a href="javascript:confirmLogout();">(logout)</a></h2>
+    <p>Search for a movie!</p>
+    <form action="./search.php" method="POST">
+        <label>
+            Keyword:
+            <input type="text" name="searchString" required>
+        </label>
+
+        <div class="better_buttons">
+            <button type="button" onclick="location.href='./index.php'">Cancel</button>
+            <input type="reset" value="Clear">
+            <input type="submit" value="Search">
+        </div>
+    </form>
+</body>
+
+</html>

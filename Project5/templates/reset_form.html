@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>Reset Password Form</title>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script src="./script.js"></script>
+</head>
+<body class="prj4">
+    <h1>myMovies Xpress!</h1>
+    <p>This form is used to reset your account password.</p>
+    <form action="./logon.php" onsubmit="return validateResetPasswordForm();" method="POST">
+        <label>
+            Password:
+            <input type="password" name="password" id="password" required>
+        </label>
+        <br>
+	<br>
+        <label>
+            Confirm Password:
+            <input type="password" name="confirm_password" id="confirm_password" required>
+        </label>
+        <br>
+
+        <div class="better_buttons">
+            <input type="button" value="Cancel" onclick="JavaScript:confirmCancel('reset');">
+            <input type="submit" value="Reset Password">
+            <input type="reset" value="Clear">
+        </div>
+
+        <input type="hidden" name="action" value="reset">
+	<?php
+		$userId = $_GET['user_id'];
+	?>
+        <input type="hidden" name="user_id" value="<?=$userId;?>">
+    </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<?php
+ $needed_String = "";
+    if(is_array($movie)){
+        $string = "
+            <div class='modal-header'>
+                <span class='close'>[Close]</span>
+                <h2>{$movie['Title']} ({$movie['Year']}) Rated {$movie['Rating']} {$movie['Runtime']}<br />{$movie['Genre']}</h2>
+            </div>
+            <div class='modal-body'>
+                <p>Actors: {$movie['Actors']}<br />Directed By: {$movie['Director']}<br />Written By: {$movie['Writer']}</p>
+            </div>
+            <div class='modal-footer'>
+                <p>{$movie['Plot']}</p>
+            </div>";
+        $needed_String = $string;
+    }
+    else{
+        $string = "
+            <div class='modal-header'>
+                <span class='close'>[Close]</span>
+                <h2>Title (Year) Rated Rating Runtime<br />Genre</h2>
+            </div>
+            <div class='modal-body'>
+                <p>Actors: Actors<br />Directed By: Director<br />Written By: Writer</p>
+            </div>
+            <div class='modal-footer'>
+                <p>Invalid Movie ID</p>
+            </div>";
+	 $needed_String = $string;
+   }
+   echo $needed_String; 
+  
+	
+?>
+</html>

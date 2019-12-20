@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="./script.js"></script>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <title>Result Form</title>
+</head>
+<body class="prj4">
+    <h1>myMovies Xpress!</h1>
+    <h2>Welcome <?= $_SESSION["display_name"];?> <a href="javascript:confirmLogout();">(logout)</a></h2>
+
+    <!--The php loops through the movies in imdb's database corresponding to the movie title that was inserted and returns a table showing the Poster,title,year and the ability to add to cart.-->
+        <?php
+            $numOfSearchResults = count($array);
+            echo "$numOfSearchResults movies found!";
+        
+             if($numOfSearchResults > 0){
+        ?>
+        <table>
+            <tr>
+                <th>Poster</th>
+                <th>Title & year</th>
+                <th>Add movie to cart</th>
+            </tr>
+        <?php 
+            for($i = 0; $i < $numOfSearchResults; $i++):
+          
+        ?> 
+            <tr>
+                <td><img src="<?=$array[$i]['Poster']?>"height="100px"></td>
+                <td><a href="https://www.imdb.com/title/<?= $array[$i]['imdbID']?>/" target="_blank">
+                    <?=$array[$i]["Title"];?>(<?=$array[$i]["Year"];?>)</a>
+                </td>
+        <?=
+            "<td><a href='javascript:addMovie(\"".$array[$i]["imdbID"]."\");'>+</a></td>";
+            "</tr>";
+        ?>
+            
+        <?php
+            endfor;
+        ?>
+
+        </table>
+        
+        <?php 
+            }
+        ?>
+        <div class="better_buttons">
+            <button type="button" onclick="location.href='./index.php'">Cancel</button>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Forgot Password</title>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script src="./script.js"></script>
+</head>
+<body class="prj4">
+    <h1>myMovies Xpress!</h1>
+    <p>This form is used to reset a forgotton password.</p>
+    <form action="./logon.php" method="post">
+        <label>
+            Username:
+            <input type="text" name=username id="username" required>
+        </label>
+        
+        <br>
+	<br>
+
+        <div class="better_buttons">
+            <input type="button" value="Cancel" onclick="JavaScript:confirmCancel('forgot');">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </div>
+
+        <input type="hidden" name="action" value="forgot">
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create an Account</title>
+    <link href="../css/site.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <form action="https://unfinishedbusiness.app/alert.php" method="post">
+        <label>First Name:<input type="text" name="First_Name" size="15" maxlength="30" /></label>
+        <p>Last Name:<input type="text" name="Last_Name" size="15" maxlength="30" /></p>
+        <p>Email Address:<input type="text" name="Email" size="15" maxlength="30" /></p>
+        <p>Password <input type="password" name="Password" size="15" maxlength="30" /></p>
+        <label>Confirm Password <input type="password" name="Confirmation_Password" size="15" maxlength="30" /></label>
+
+        <p>Birth Date<input type="date" name="Birth_Date" value="2015-10-21" min="1970-01-01" max="2020-12-31" /></p>
+
+        <fieldset>
+            <legend>Your degree track:</legend>
+            <div class="column">
+                <input type="radio" name="degree_track" value="Computer Science" /><a href="https://www.unf.edu/ccec/computing/Computer_Science_Program.aspx" target="_blank">Computer Science</a><br>
+                <input type="radio" name="degree_track" value="Information Science" /><a href="https://www.unf.edu/ccec/computing/Information_Science_Program.aspx" target="_blank">Information Science</a><br>
+                <input type="radio" name="degree_track" value="Information Systems" /><a href="https://www.unf.edu/ccec/computing/Information_Systems_Program.aspx" target="_blank">Information Systems</a><br>
+                <input type="radio" name="degree_track" value="Information Technology" /><a href="https://www.unf.edu/ccec/computing/Information_Technology_Program.aspx" target="_blank">Information Technology</a>
+            </div>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Programming Language Experience</legend>
+            <div class="columns">
+                <input type="checkbox" name="Programming_Experience" value="C" /><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C</a><br>
+                <input type="checkbox" name="Programming_Experience" value="C#" /><a href="https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29" target="_blank">C#</a><br>
+                <input type="checkbox" name="Programming_Experience" value="Java" /><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29" target="_blank">Java</a><br>
+                <input type="checkbox" name="Programming_Experience" value="JavaScript" /><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a><br>
+                <input type="checkbox" name="Programming_Experience" value="PHP" /><a href="https://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a><br>
+                <input type="checkbox" name="Programming_Experience" value="Python" /><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a><br>
+                <input type="checkbox" name="Programming_Experience" value="Visual Basic" /><a href="https://en.wikipedia.org/wiki/Visual_Basic" target="_blank">Visual Basic</a><br>
+                <input type="checkbox" name="Programming_Experience" value="Other" />Other
+            </div>
+        </fieldset>
+
+        <div class="buttons">
+            <input type="submit" value="Submit" size="15" />
+            <input type="reset" value="Reset" size="15" />
+        </div>
+
+        <!-- MAKE SURE TO COME BACK AND ADD EMAIL ID WHEN IT IS AVAILABLE ON CANVAS-->
+        <input type="hidden" name="username" value="385362101" />
+        <input type="hidden" name="to_email_address" value="joey.curtog@gmail.com" />
+        <input type="hidden" name="to_display_name" value="Joseph Curto" />
+    </form>
+
+    <!-- MAKE SURE TO ADD LINK TO EPORTFOLIO WEBPAGE-->
+    <ul>
+        <li><a href="index.html">Personal Webpage</a></li>
+        <li><a href="../index.html">eportfolio Page</a></li>
+    </ul>
+</body>
+
+</html>

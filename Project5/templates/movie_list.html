@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <table>
+        <tr>
+            <th>Poster</th>
+            <th>Title & Year</th>
+            <th>Info</th>
+            <th>Remove movie</th>
+        </tr>
+
+        <?php
+            $IdArrayLength = count($movieIDArray);
+            for($i = 0; $i < $IdArrayLength; $i++):
+                $movieArray = getMovieData($movieIDArray[$i]);
+                $trueMovieID = $movieArray['IMDB_ID'];
+		$idFromDB = $movieArray['ID'];
+                $title = $movieArray['Title'];
+                $year = $movieArray['Year'];
+                $poster = $movieArray['Poster'];
+        ?>
+        <tr>
+            <td><img src="<?=$poster;?>" height="100px"></td>
+            <td><a href="https://www.imdb.com/title/<?=$trueMovieID?>/" target="_blank">
+                    <?=$title;?>(<?=$year;?>)</a>
+            </td>
+	<?php
+	    if($forEmail == true){
+		echo '';
+	    }
+	    else{
+	?>
+            <td><a href="javascript:void(0);" onclick="displayMovieInformation('<?=$idFromDB;?>');">View More Info</a></td>
+    
+        <?=
+            "<td><a href='javascript:confirmRemove(\"".$title."\",\"".$idFromDB."\");'>X</a></td>";
+            "</tr>";
+        ?>
+        <?php
+		}
+            endfor;
+        ?>
+    </table>
+</html>

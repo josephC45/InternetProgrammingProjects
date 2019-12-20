@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <?php
+        if($forEmail == true){
+            echo "<title>''</title>";
+        }else{
+    ?>
+        <title>Movie Kart</title>
+
+    <?php
+        }
+    ?>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body class="prj4">
+    <?php
+        if($forEmail == true){
+            echo "<h1>''</h1>";
+        }
+        else{
+    ?>
+        <h1 class="proj4"> myMovies Xpress! </h1>
+        <h2>Welcome <?= $_SESSION["display_name"];?> <a href="javascript:confirmLogout();">(logout)</a></h2>
+
+    <?php
+        }
+    ?>
+    <br>
+    
+        <!--The php is suppose to read through the movie array, count how many movies are within, and display their corresponding posters, titles, and give you the option
+        whether you wish to remove the movie from your cart.-->
+        <?php 
+            
+            if($moviesInCart == 0){
+                echo "Add some movies to your cart!";
+            }  
+            else{
+                echo "$moviesInCart Movie(s) in your Shopping Cart.";
+        ?>
+        <select id='select_order' onchange='changeMovieDisplay();'>
+            <option value='0' default>Movie Title</option>
+            <option value='1'>Runtime (shortest -> longest)</option>
+            <option value='2'>Runtime (longest -> shortest)</option>
+            <option value='3'>Year (old -> new)</option>
+            <option value='4'>Year (new -> old)</option>
+        </select>
+
+        <div id='shopping_cart'><?=$movie_list;?></div>
+
+        <?php
+            }
+        ?> 
+            
+        <?php
+            if($forEmail == true){
+                echo '';
+            }
+            else{
+        ?>
+
+            <div class="buttons">
+                <input type="button" value="Add Movie" onclick="location.href = './search.php'" />
+                <input type="button" value="Checkout" onclick="javascript:confirmCheckout();" />
+            </div>
+
+            <br>
+            <div id='modalWindow' class='modal'>
+                <div id='modalWindowContent' class='modal-content'></div>
+            </div>
+        <?php
+            }
+        ?>
+    
+</body>
+</html>

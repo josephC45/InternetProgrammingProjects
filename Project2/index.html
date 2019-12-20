@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Payment Processing</title>
+    <link href="../css/site.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <h2>Enter Payment Information</h2>
+    <form name="frm" onsubmit="return validateForm();">
+        <section>
+            <div class="column">
+                <input type="radio" name="btn" value="CreditCard" id="credit" checked onclick="updateForm(this);" />
+                <img src="/Project2/images/AmEx.png" alt="American Express" width="150" height="100">
+                <img src="/Project2/images/Discover.png" alt="Discover Card" width="150" height="100">
+                <img src="/Project2/images/MasterCard.png" alt="Master Card" width="150" height="100">
+                <img src="/Project2/images/Visa.png" alt="Visa Card" width="150" height="100">
+            </div>
+        </section>
+
+        <section>
+            <div class="column">
+                <input type="radio" name="btn" value="PayPal" id="payP" onclick="updateForm(this);" />
+                <img src="/Project2/images/PayPal.png" alt="PayPal logo" width="150" height="65">
+            </div>
+        </section>
+
+        <div id="paymentinfo"></div>
+
+        <div class="buttons">
+            <input type="image" alt="Submit" value="Submit" src="/Project2/images/PayNow.png" size="5" />
+        </div>
+
+    </form>
+
+    <a href="../index.html">eportfolio Page</a></li>
+    <script src="/Project2/script.js" type="text/javascript"></script>
+</body>
+
+</html>

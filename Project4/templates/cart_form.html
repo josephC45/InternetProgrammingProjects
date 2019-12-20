@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Movie Kart</title>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script src="./script.js"></script>
+</head>
+<body class="prj4">
+    <h1> myMovies Xpress! </h1>
+    <h2>Welcome <?= $_SESSION["display_name"];?> <a href="javascript:confirmLogout();">(logout)</a></h2>
+    <br>
+        <!--The php is suppose to read through the movie array, count how many movies are within, and display their corresponding posters, titles, and give you the option
+        whether you wish to remove the movie from your cart.-->
+        <?php 
+
+            $movieArray = readMovieData();
+            $numOfMovies = count($movieArray);
+
+            if(empty($movieArray)){
+                echo "Add Some Movies to Your Cart!";
+            }  
+            else{
+		ob_start();
+                echo "$numOfMovies Movie(s) in your Shopping Cart.";
+        ?>
+        <table>
+            <tr>
+                <th>Poster</th>
+                <th>Title & Year</th>
+                <th>Remove movie from cart</th>
+            </tr>
+
+        <?php
+            for($i = 0; $i < $numOfMovies; $i++):
+                $movie = file_get_contents('http://www.omdbapi.com/?apikey=c9e105a7&i='.$movieArray[$i].'&type=movie&r=json');
+                $array = json_decode($movie, true);
+        ?>
+            <tr>
+                <td><img src="<?=$array['Poster']?>" height="100px"></td>
+                <td><a href="https://www.imdb.com/title/<?=$array['imdbID']?>" target="_blank">
+                    <?=$array["Title"];?>(<?=$array["Year"];?>)</a>
+                </td>
+	<?php
+		$mail_message = ob_get_contents();
+	?>
+         
+        <?=
+            "<td><a href='javascript:removeMovie(\"".$array["Title"]."\",\"".$array["imdbID"]."\");'>X</a></td>";
+            "</tr>";
+        ?>
+
+        <?php
+             endfor;
+	   } 
+        ?> 
+         
+        </table>
+
+            
+        <div class="better_buttons">
+            <input type="button" value="Add Movie" onclick="location.href = './search.php'">
+            <input type="button" value="Checkout" onclick="javascript:confirmCheckout();">
+        </div>
+
+        <br>
+</body>
+
+</html>

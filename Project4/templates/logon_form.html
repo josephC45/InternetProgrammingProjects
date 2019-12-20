@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Film House</title>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script src="./script.js"></script>
+</head>
+<body class="prj4">
+ <form action="./logon.php" method="POST"> 
+    <p class="error_message"> 
+        <?=$message;?> 
+    </p>
+    <h1>myMovies Xpress!</h1>
+        <p>Enter the username and password that is located in the credentials file.</p>
+        <br>
+        <section>
+            <div class="container">
+                <label>
+                    Username:
+                    <input type="text" name="username" id="username"><br>
+                </label>
+
+                <label>
+                    Password:
+                    <input type="password" name="password" id="password">
+                </label>
+            </div>
+        </section>
+
+        <div class="better_buttons">
+            <input type="submit" value="Login">
+            <input type="reset" value="Clear">
+        </div>
+
+        <br>
+    <a href="./../index.html">eportfolio Page</a></li>
+ </form>
+</body>
+
+</html>

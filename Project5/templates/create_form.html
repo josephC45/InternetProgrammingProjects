@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>Create Account</title>
+    <link href="./../css/site.css" type="text/css" rel="stylesheet" />
+    <script src="./script.js"></script>
+</head>
+<body class="prj4">
+   <h1>myMovies Xpress!</h1>
+   <p>Here, you will create your account by inputting your name, email address, username and password.</p>
+   <form action="./logon.php" onsubmit="return validateCreateAccountForm();" method="POST">
+      <div class="container">
+        <label class="inputs">
+            Display Name:
+            <input type="text" name="display_name" id="display_name" required>
+        </label>
+	<br>
+        <label class="inputs">
+            Email Address:
+            <input type="text" name="email_address" id="email_address" required>
+        </label>
+	<br>
+        <label class="inputs">
+            Confirm Email:
+            <input type="text" name="confirm_address" id="confirm_address" requried>
+        </label>
+	<br>
+        <label class="inputs">
+            Username:
+            <input type="text" name="username" id="username" required>
+        </label>
+        <br>
+        <label class="inputs">
+            Password:
+            <input type="password" name="password" id="password" required>
+        </label>
+	<br>
+        <label class="inputs">
+            Confirm Password:
+            <input type="password" name="confirm_password" id="confirm_password" required>
+        </label>
+     </div>
+        <br>
+        <div class="better_buttons">
+            <input type="button" value="Cancel" onclick="JavaScript:confirmCancel('create');">
+            <input type="submit" value="Create Account">
+            <input type="reset" value="Clear">
+       </div>
+
+        <input type="hidden" name="action" value="create">
+
+   </form>
+</body>
+</html>
